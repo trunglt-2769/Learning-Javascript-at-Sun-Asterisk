@@ -1,0 +1,32 @@
+// color
+$white: #fff;
+$black: #000;
+$gray: #818181;
+$new-color: #62af26;
+$hot-color: #ed301c;
+$light-gray: #cacaca;
+$dark-gray: #252525;
+$primary-color: #e6ae48;
+
+// font
+@font-face {
+  font-family: "UTM Aquarelle";
+  src: url("../fonts/UTM Aquarelle.ttf");
+}
+@font-face {
+  font-family: "UTM Caviar";
+  src: url("../fonts/UTM Caviar.ttf");
+}
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+$primary-font: "Times New Roman", sans-serif;
+$secondary-font: "UTM Aquarelle", sans-serif;
+$third-font: "UTM Caviar", sans-serif;
+$fourth-font: "Lobster", cursive;
+
+$breakpoint: (
+  xs: 0,
+  sm: 36em,
+  md: 48em,
+  lg: 62em,
+  xl: 75em,
+);

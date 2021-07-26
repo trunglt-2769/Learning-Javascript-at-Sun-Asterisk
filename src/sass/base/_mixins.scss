@@ -1,0 +1,53 @@
+// media breakpoint down/up for responsive
+@mixin media-breakpoint($breakpoint, $direction: down) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    @if $direction == up {
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else if $direction == down {
+      @media (max-width: $breakpoint-value) {
+        @content;
+      }
+    }
+  }
+}
+
+// media breakpoint between two size for responsive
+@mixin media-breakpoint-between($lower, $upper) {
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    $lower-breakpoint: map-get($breakpoints, $lower);
+    $upper-breakpoint: map-get($breakpoints, $upper);
+
+    @media (min-width: $lower-breakpoint) and (max-width: $upper-breakpoint) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $lower) and (max-width: $upper) {
+      @content;
+    }
+  }
+}
+
+// absolute center
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+// transition
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+  -webkit-transition: $what $time $how;
+  -moz-transition: $what $time $how;
+  -ms-transition: $what $time $how;
+  -o-transition: $what $time $how;
+  transition: $what $time $how;
+}
