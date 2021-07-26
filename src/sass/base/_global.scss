@@ -1,0 +1,16 @@
+* {
+  box-sizing: inherit;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  line-height: 2rem;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: $primary-font;
+}
