@@ -1,0 +1,45 @@
+include ../components/carousel.pug
+
+header.header
+    .header__top.d-flex.align-items-center(class=`${current === '/' ? 'header__top--index' : ''}`)
+        .container
+            nav.header__menu.d-flex.justify-content-between.align-items-center
+                ul.header__top-list
+                    each item in header.topItems
+                        li.header__top-item
+                            a.header__top-link(href= item.link, class=`${current === item.link ? 'active' : ''}`)= item.title
+                form.d-flex
+                    input.bg-transparent.form-control.me-2.py-0(type='search' placeholder='Tìm kiếm ở đây...' aria-label='Search')
+                    button.btn(type='submit')
+                        em.fas.fa-search
+    - if (current === "/")
+        section.header__carousel.d-none.d-sm-block
+            +carousel('headerCarousel', header.carouselItems, 'headerCarousel', false)
+    .header__nav
+        .container
+            nav.navbar.navbar-expand-lg.navbar-dark
+                a.header__nav-logo(href="/")
+                    img(src='./assets/images/logo-yellow.png', alt="Brand logo")
+                button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNav' aria-controls='navbarNav' aria-expanded='false' aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+                #navbarNav.collapse.navbar-collapse
+                    ul.header__nav-list.w-100.d-lg-flex.justify-content-between
+                        each item in header.navItems  
+                            li.header__nav-item
+                                a.header__nav-link(href= item.link, class=`${current === item.link ? 'active' : ''}`)= item.title
+                                if item.hasMegaMenu
+                                    .mega-menu
+                                        .row
+                                            .col-12.col-xl-8 
+                                                .row 
+                                                    each item in header.megaMenuItems
+                                                        .mega-menu__item.col-4
+                                                            h3= item.title
+                                                            ul.mega-menu__list
+                                                                each listItem in item.list
+                                                                    li.mega-menu__list-item
+                                                                        a.mega-menu__link(href= listItem.link)= listItem.name
+                                            .col-12.col-xl-4
+                                                img(src='./assets/images/gallery-6.jpg', alt= 'Wine image')
+
+                

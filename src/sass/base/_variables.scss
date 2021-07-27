@@ -23,10 +23,11 @@ $secondary-font: "UTM Aquarelle", sans-serif;
 $third-font: "UTM Caviar", sans-serif;
 $fourth-font: "Lobster", cursive;
 
-$breakpoint: (
+$breakpoints: (
   xs: 0,
-  sm: 36em,
-  md: 48em,
-  lg: 62em,
-  xl: 75em,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
 );

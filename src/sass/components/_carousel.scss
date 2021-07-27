@@ -1,0 +1,5 @@
+.carousel {
+  &-indicators [data-bs-target] {
+    background-color: $primary-color;
+  }
+}
