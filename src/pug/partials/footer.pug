@@ -1,0 +1,65 @@
+footer.footer 
+    .container
+        .footer__brand
+            .row 
+                each item in footer.brand
+                    .footer__brand-img.col-md-4 
+                        img(src= './assets/images/' + item.imgFile, alt= item.imgName)
+
+        .footer__menu
+            .row      
+                each item in footer.menuLeft
+                    - const { itemTitle, list } = item
+                    .col-6.col-lg-2
+                        .footer__menu-inner
+                            h3.footer__menu-title= itemTitle
+                            nav.footer__menu-content
+                                ul.footer__menu-list
+                                    each listItem in list 
+                                        li.footer__menu-item
+                                            a.footer__menu-link(href= listItem.link)= listItem.name
+ 
+                .col-12.col-lg-4
+                    .footer__menu-inner
+                        - var { itemTitle, msg, placeholder, social } = footer.menuEmail
+                        h3.footer__menu-title= itemTitle
+                        .footer__menu-content
+                            p= msg 
+                            form.input-group
+                                input.footer__menu-input.form-control(type="email" placeholder= placeholder)
+                                button.btn.button.button--arrow Gửi
+                            .footer__menu-social
+                                each item in social                            
+                                    a(href= item.link)
+                                        em(class= item.icon)
+
+                .col-12.col-lg-4
+                    .footer__menu-inner
+                        - var { itemTitle, address, onlineAdvise } = footer.menuContact
+                        h3.footer__menu-title= itemTitle
+                        .footer__menu-content
+                            p.footer__menu-address
+                                em.fas.fa-map-marker-alt
+                                span.ms-2= address
+                            .row 
+                                each item in onlineAdvise
+                                    .col-6.mb-3
+                                        span.footer__menu-advise
+                                            em(class= item.icon)
+                                            span.ms-2(class= item.icon === 'fas fa-envelope' ? 'fst-italic text-warning' : '')= item.info
+    
+    .container-fluid
+        .footer__bottom
+            .container.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-md-between
+                span= footer.bottom.copyright
+                img.px-5.py-3(src= footer.bottom.paymentImg alt= 'payment method image')
+                                    
+                                
+
+
+
+                        
+
+                                    
+
+                    
