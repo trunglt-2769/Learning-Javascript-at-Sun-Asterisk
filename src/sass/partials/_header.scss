@@ -32,7 +32,6 @@
     }
 
     &-list {
-      list-style: none;
       padding: 0;
       margin: 0;
 
@@ -154,7 +153,6 @@
     background-color: $black;
 
     &-list {
-      list-style: none;
       margin: 0 0 0 30px;
       padding: 0;
     }
@@ -198,19 +196,12 @@
         }
 
         &__list {
-          list-style: none;
           padding: 0;
         }
 
         &__link {
           display: block;
-          text-decoration: none;
-          color: $gray;
           padding: 4px 0;
-
-          &:hover {
-            color: $primary-color;
-          }
         }
 
         img {

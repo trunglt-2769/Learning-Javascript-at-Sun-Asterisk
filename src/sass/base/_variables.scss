@@ -18,10 +18,12 @@ $primary-color: #e6ae48;
   src: url("../fonts/UTM Caviar.ttf");
 }
 @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 $primary-font: "Times New Roman", sans-serif;
 $secondary-font: "UTM Aquarelle", sans-serif;
 $third-font: "UTM Caviar", sans-serif;
 $fourth-font: "Lobster", cursive;
+$fifth-font: "Roboto", sans-serif;
 
 $breakpoints: (
   xs: 0,

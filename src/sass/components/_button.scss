@@ -1,0 +1,28 @@
+.button {
+  @include borderRadius;
+  @include transition;
+
+  position: relative;
+  padding: 0.4rem 1.6rem;
+  font-size: 1.4rem;
+  color: $white;
+  background-color: $black;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
+
+.button--arrow {
+  &::after {
+    content: "";
+    position: absolute;
+    border: 15px solid;
+    border-color: transparent transparent transparent $black;
+    left: calc(100% + 1px);
+    top: 0;
+  }
+}

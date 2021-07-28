@@ -14,3 +14,16 @@ body {
   font-size: 1.4rem;
   font-family: $primary-font;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  color: $gray;
+  text-decoration: none;
+
+  &:hover {
+    color: $primary-color;
+  }
+}
