@@ -1,0 +1,28 @@
+mixin carousel(id, infoData, infoMixin, hasControlBtn= true)
+	article.carousel.slide(id= id, data-bs-ride='carousel')
+		.carousel-indicators
+			- var count = 0
+			each item in infoData
+				- count++
+				button(class= count === 1 ? 'active' : null, type='button', data-bs-target=`#${id}`, data-bs-slide-to=`${count-1}`, aria-current= count === 1 ? 'true' : null, aria-label=`Slide ${count}`)
+		.carousel-inner
+			- var count = 0
+			each item in infoData
+				- count++
+				.carousel-item(class= count === 1 ? 'active' : null)
+					+#{infoMixin}(item)
+		if hasControlBtn
+			button.carousel-control-prev.carousel-btn.position-absolute.top-50.start-0.translate-middle-y.ms-3(type='button' data-bs-target=`#${id}` data-bs-slide='prev')
+				span.carousel-control-prev-icon(aria-hidden='true')
+				span.visually-hidden Previous
+			button.carousel-control-next.carousel-btn.position-absolute.top-50.end-0.translate-middle-y.me-3(type='button' data-bs-target=`#${id}` data-bs-slide='next')
+				span.carousel-control-next-icon(aria-hidden='true')
+				span.visually-hidden Next
+
+mixin headerCarousel(item)
+	article.header__carousel-container
+		img.header__carousel-img(src="./assets/images/" + item.imgFile, alt= item.subtitle)
+		.header__carousel-content
+			h2.header__carousel-title= item.title
+				span.header__carousel-year="Since " + item.year
+				span.header__carousel-subtitle= item.subtitle
