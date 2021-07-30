@@ -1,0 +1,11 @@
+mixin blog-card(item)
+    article.blogCard
+        - const {img, imgAlt, itemTitle, author, date, commentCount, desc}= item;
+        .blogCard__img
+            img(src=`./assets/images/${img}`, alt= imgAlt)
+            .blogCard__overlay
+        .blogCard__content
+            h2.blogCard__title= itemTitle 
+            p.blogCard__info= `Đăng bởi ${author} | ${date} | ${commentCount} bình luận`
+            p.blogCard__desc.text-justify= desc
+            a(href="#") Read more

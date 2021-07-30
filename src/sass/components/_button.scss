@@ -4,6 +4,7 @@
 
   position: relative;
   padding: 0.4rem 1.6rem;
+  display: inline-block;
   font-size: 1.4rem;
   color: $white;
   background-color: $black;
@@ -12,17 +13,43 @@
   cursor: pointer;
 
   &:hover {
-    color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
   }
 }
 
 .button--arrow {
   &::after {
+    @include transition;
     content: "";
     position: absolute;
     border: 15px solid;
     border-color: transparent transparent transparent $black;
     left: calc(100% + 1px);
     top: 0;
+  }
+
+  &:hover {
+    &::after {
+      border-left-color: $primary-color;
+    }
+  }
+}
+
+.carousel-btn {
+  @include borderRadius(50%);
+  height: 4rem;
+  width: 4rem;
+  font-size: 1.6rem;
+  opacity: 1 !important;
+  color: $black;
+
+  &:hover {
+    @include transform(scale(1.1));
+    color: $primary-color;
+  }
+
+  &:focus {
+    color: $primary-color;
   }
 }

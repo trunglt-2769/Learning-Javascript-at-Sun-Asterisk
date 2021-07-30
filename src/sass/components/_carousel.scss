@@ -3,3 +3,45 @@
     background-color: $primary-color;
   }
 }
+
+.product-carousel {
+  .row {
+    @include media-breakpoint(md) {
+      .col-12:nth-child(n):not(:first-child) {
+        display: none;
+      }
+    }
+
+    @include media-breakpoint(lg) {
+      .col-12:nth-child(2n) {
+        display: none;
+      }
+    }
+  }
+}
+
+.customerReview {
+  &__avatar {
+    @include borderRadius(1rem);
+    width: 100px;
+    height: 100px;
+    margin: 2rem auto;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__desc {
+    margin-top: 2.2rem;
+    color: $gray;
+  }
+
+  &__job {
+    font-size: 1.2rem;
+    color: $light-gray;
+    font-style: italic;
+  }
+}
