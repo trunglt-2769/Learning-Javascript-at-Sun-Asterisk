@@ -81,4 +81,25 @@ block content
                         - var {itemTitle, carousels} = customerReview
                         +top-title(itemTitle, 'special')
                         +carousel('customerReview', carousels, 'reviewCarousel', false)
-                    
+
+    section.popup 
+        input.popup__close(type='checkbox')
+        em.popup__close-icon.fas.fa-times
+        
+        .popup__container
+            .popup__block
+                .row
+                    .col-lg-4.d-none.d-lg-block
+                        .popup__img
+                            img(src=`./assets/images/pop-up-wine.png`, alt= 'pop up image')
+                    .col-12.col-lg-8
+                        .popup__content
+                            h2 Gửi email 
+                            p Đăng ký Email ngay hôm nay để được thông tin về các sự kiện, các chương trình giảm giá của chúng tôi sớm nhất!
+                            form.flex-row.w-100
+                                .input-group.mt-4
+                                    input.form-control.px-5.flex-fill.fs-4(type="email" placeholder= 'Email của bạn')
+                                    button.btn.button.p-3 Gửi email
+                                .form-check.mt-4
+                                    input#popupCheck.form-check-input(type='checkbox')
+                                    label.form-check-label.me-auto(for='popupCheck') Không hiển thị lại thông báo này
