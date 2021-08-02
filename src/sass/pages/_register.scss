@@ -1,0 +1,15 @@
+.register {
+  &__header {
+    a {
+      @include absolute(0, 0, null, null);
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__form {
+    padding: 5rem 4% 0 4%;
+  }
+}

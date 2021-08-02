@@ -1,0 +1,12 @@
+mixin form-input(id, label, type, isRequired= false)
+    .form-input.form-group
+        .row 
+            .col-sm-2
+                label.form-input__label.col-form-label(for= id)= label
+                    if isRequired
+                        span &nbsp*
+            .col-sm-10 
+                if isRequired
+                    input.form-input__input.form-control(id= id, type= type, required)
+                else 
+                    input.form-input__input.form-control(id= id, type= type)
