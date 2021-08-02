@@ -6,12 +6,17 @@
   padding: 0.4rem 1.6rem;
   display: inline-block;
   font-size: 1.4rem;
+  line-height: 1.5;
   color: $white;
   background-color: $black;
   border: none;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  user-select: none;
 
   &:hover {
     background-color: $primary-color;

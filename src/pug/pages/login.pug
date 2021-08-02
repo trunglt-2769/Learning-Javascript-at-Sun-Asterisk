@@ -1,7 +1,30 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/input.pug
 
 block variables
     - const title = 'Đăng nhập'
     - const current = '/login.html'
     
 block content
+    +breadcrumb(breadcrumb.login, current)
+
+    section.login 
+        .container.position-relative
+            .register__header
+                +top-title('Đăng nhập')
+                a.button.button--lg(href='/register.html') Đăng ký
+            form.register__form.mx-auto(action="")
+                h3.register__title Khách hàng đăng nhập
+                p.mt-3.mb-3 Nếu bạn có một tài khoản, xin vui lòng đăng nhập
+                +form-input('email', 'Email', 'email', true)
+                +form-input('password', 'Password', 'password', true)
+                .row 
+                    .col-sm-10.offset-sm-2
+                        .form-check.mt-4
+                            input#registerFormCheck1.form-check-input(type='checkbox')
+                            label.form-check-label.me-auto(for='registerFormCheck1') Đăng ký nhận bản tin
+                .row.mt-5
+                    .col-sm-10.offset-sm-2
+                        button(type='submit').button Đăng nhập
