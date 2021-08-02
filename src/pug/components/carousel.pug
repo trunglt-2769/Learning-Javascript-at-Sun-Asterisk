@@ -12,11 +12,11 @@ mixin carousel(id, infoData, infoMixin, hasControlBtn= true)
 				.carousel-item(class= count === 1 ? 'active' : null)
 					+#{infoMixin}(item)
 		if hasControlBtn
-			button.carousel-control-prev.carousel-btn.position-absolute.top-50.start-0.translate-middle-y.ms-3(type='button' data-bs-target=`#${id}` data-bs-slide='prev')
-				span.carousel-control-prev-icon(aria-hidden='true')
+			button.carousel-control-prev.carousel-btn.position-absolute.top-50.start-0.translate-middle-y(type='button' data-bs-target=`#${id}` data-bs-slide='prev')
+				span.fas.fa-arrow-left(aria-hidden='true')
 				span.visually-hidden Previous
-			button.carousel-control-next.carousel-btn.position-absolute.top-50.end-0.translate-middle-y.me-3(type='button' data-bs-target=`#${id}` data-bs-slide='next')
-				span.carousel-control-next-icon(aria-hidden='true')
+			button.carousel-control-next.carousel-btn.position-absolute.top-50.end-0.translate-middle-y(type='button' data-bs-target=`#${id}` data-bs-slide='next')
+				span.fas.fa-arrow-right(aria-hidden='true')
 				span.visually-hidden Next
 
 mixin headerCarousel(item)
@@ -26,3 +26,23 @@ mixin headerCarousel(item)
 			h2.header__carousel-title= item.title
 				span.header__carousel-year="Since " + item.year
 				span.header__carousel-subtitle= item.subtitle
+
+mixin productCarousel(item)
+	article.product-carousel
+		.row
+			each listItem in item
+				- const {img, imgAlt, type, name, price, originPrice, link} = listItem
+				.col-12.col-md-6.col-lg-3
+					+productBlock(img, imgAlt, type, name, price, originPrice, link)
+
+mixin reviewCarousel(item)
+	article.review-carousel.text-center.mt-4
+		- var {desc, img, imgAlt, name, job} = item
+		img.mt-3(src="./assets/images/quote.png", alt="quote")
+		p.customerReview__desc.text-center= desc
+		a(href="#").text-center.d-block Read more
+		.customerReview__avatar
+			img(src=`./assets/images/${img}`, alt= imgAlt)
+		h4.customerReview__name.mb-0= name
+		span.customerReview__job= job
+		

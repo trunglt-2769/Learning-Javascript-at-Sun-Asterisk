@@ -1,0 +1,27 @@
+mixin productImg(img= null, imgAlt= null , type= null)
+    .product-img
+        img(src=`./assets/images/${img}` alt= imgAlt)
+        div(class= `product-img__tag-${type}`)
+        .product-img__option
+            .row
+                p.product-img__wishlist.col-5.m-0
+                    a(href= '#').text-center
+                        em.fas.fa-heart 
+                        |&nbsp Yêu thích
+                p.product-img__compare.col-5.m-0
+                    a(href= '#').text-center
+                        em.fas.fa-signal
+                        |&nbsp So sánh
+                p.product-img__zoom-in.col-2.m-0
+                    a(href= '#').text-center
+                        em.fas.fa-expand-alt
+
+mixin productBlock(img= null, imgAlt= null, type= null, name= null, price= null, originPrice= null, link= null)
+    .product-block.text-center
+        +productImg(img, imgAlt, type)
+        h4.product-block__name= name
+        span.price.product-block__price= price 
+        span.price.product-block__original-price= originPrice
+        br
+        a(href= link).button.mt-4 Add to cart
+        

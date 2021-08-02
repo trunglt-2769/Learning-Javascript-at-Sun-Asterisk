@@ -9,3 +9,15 @@
     @include transform(scale(1));
   }
 }
+
+//animation slideToTop
+@keyframes slideToTop {
+  from {
+    opacity: 0;
+    @include transform(translateY(100%));
+  }
+  to {
+    opacity: 1;
+    @include transform(translateY(0));
+  }
+}

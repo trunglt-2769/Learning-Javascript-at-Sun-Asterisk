@@ -1,7 +1,84 @@
 extends ../base/base.pug
+include ../components/top-title.pug
+include ../components/product.pug
+include ../components/carousel.pug
+include ../components/card.pug
 
 block variables
     - const title = 'Trang chủ'
     - const current = '/'
 
 block content
+    section.intro
+        - const { introBgLeft, introBgRight, introTitle, introDesc } = intro
+        img.intro__bg-left(src=`./assets/images/${introBgLeft.img}`, imgAlt= introBgLeft.alt)
+        img.intro__bg-right(src=`./assets/images/${introBgRight.img}`, imgAlt= introBgRight.alt)
+        .intro__content
+            .container.text-center
+                +top-title(introTitle, 'special')
+                p.intro__desc= introDesc
+                a(href='/about.html').button Xem thêm
+
+    section.top-product
+        .container
+            .top-product__bg
+                .top-product__block
+                    .row
+                        .col-md-8
+                            +productImg(topProduct.img, topProduct.altImg, 'sale')
+                        .top-product__content.col-md-4
+                            +top-title(topProduct.title)
+                            span.price.price--large= topProduct.price
+                            br
+                            a.button(href= topProduct.link) Add to cart
+                            p.top-product__desc= topProduct.desc
+                            .countdown
+                                .row.g-0
+                                    each item in topProduct.countdown
+                                        .col-6
+                                            .countdown__item.text-center
+                                                span.countdown__number= item.number
+                                                br
+                                                span.countdown__format= item.format
+    
+    section.new-product
+        .container
+            - var {itemTitle, carousels} = newProducts
+            +top-title(itemTitle, 'special')
+            +carousel('newProduct', carousels, 'productCarousel', true)
+
+    section.gallery
+        .container-fluid
+            .row
+                each item in gallery
+                    - const {img, name, year} = item;
+                    .col-lg-3.col-md-6.col-sm-6.p-0
+                        .gallery__img(style=`background: url(./assets/images/${img}) center center / cover no-repeat`)
+                            .gallery__content.text-center
+                                span= year 
+                                h2= name
+
+    section.hot-product 
+        .container
+            - var {itemTitle, carousels} = hotProducts
+            +top-title(itemTitle, 'special')
+            +carousel('hotProduct', carousels, 'productCarousel', true)
+
+    section.blog-customer
+        .container 
+            .row
+                .col-12.col-md-6.col-lg-8
+                    .blogCard-container 
+                        - var {itemTitle, blogCards} = newsAndBlog
+                        +top-title(itemTitle, 'special')
+                        .row.mt-5
+                            each item in blogCards 
+                                .col-lg-6.mt-3
+                                    +blog-card(item)
+
+                .col-12.col-md-6.col-lg-4
+                    .customerReview-container 
+                        - var {itemTitle, carousels} = customerReview
+                        +top-title(itemTitle, 'special')
+                        +carousel('customerReview', carousels, 'reviewCarousel', false)
+                    

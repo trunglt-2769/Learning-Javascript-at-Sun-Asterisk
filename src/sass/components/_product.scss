@@ -1,0 +1,131 @@
+.product-img {
+  @include relative;
+  width: 100%;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__tag {
+    &-sale,
+    &-hot,
+    &-new {
+      @include absolute(0, null, null, 0);
+
+      width: 20%;
+      z-index: 10;
+
+      &::before {
+        content: "";
+        display: block;
+        padding-top: 100%;
+      }
+
+      &::after {
+        @include absolute(10%, null, null, 10%);
+        @include transform(rotate(-45deg));
+
+        font-size: calc(1rem + 0.4vw);
+        text-transform: capitalize;
+        color: $white;
+
+        @include media-breakpoint(lg) {
+          font-size: calc(1.6rem + 0.4vw);
+        }
+
+        @include media-breakpoint(md) {
+          font-size: calc(1.6rem + 1vw);
+        }
+      }
+    }
+
+    &-sale {
+      background: linear-gradient(
+        135deg,
+        $primary-color 47%,
+        transparent 47% 49%,
+        $primary-color 49% 50%,
+        transparent 50%
+      );
+
+      &::after {
+        content: "sale";
+      }
+    }
+
+    &-hot {
+      background: linear-gradient(
+        135deg,
+        $hot-color 47%,
+        transparent 47% 49%,
+        $hot-color 49% 50%,
+        transparent 50%
+      );
+
+      &::after {
+        content: "hot";
+      }
+    }
+
+    &-new {
+      background: linear-gradient(
+        135deg,
+        $new-color 47%,
+        transparent 47% 49%,
+        $new-color 49% 50%,
+        transparent 50%
+      );
+
+      &::after {
+        content: "new";
+      }
+    }
+  }
+}
+
+.product-block {
+  &__name {
+    text-transform: uppercase;
+    margin-top: 2rem;
+  }
+
+  &__price {
+    font-size: 2rem;
+  }
+
+  &__original-price {
+    color: gray !important;
+    text-decoration: line-through;
+
+    &::before {
+      content: " - ";
+      white-space: pre;
+    }
+  }
+
+  &:hover {
+    .product-img__option {
+      @include animation(slideToTop 0.8s ease forwards);
+    }
+
+    .product-block {
+      &__name {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+.product-img {
+  overflow: hidden;
+
+  &__option {
+    @include transform(translateY(100%));
+    padding: 0.3rem 0;
+    color: $white;
+    background-color: $black;
+  }
+}
