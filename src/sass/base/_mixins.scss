@@ -135,3 +135,11 @@
 @mixin fixed($args...) {
   @include position(fixed, $args...);
 }
+
+// fixed center
+@mixin fixedCenter {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  @include transform(translate(-50%, -50%));
+}
