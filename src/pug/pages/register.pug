@@ -1,7 +1,34 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/input.pug
 
 block variables
     - const title = 'Đăng ký'
     - const current = '/register.html'
 
 block content
+    +breadcrumb(breadcrumb.register, current)
+
+    section.register
+        .container.position-relative
+            .register__header
+                +top-title('Đăng ký')
+                a.button.button--lg(href='/login.html') Đăng nhập
+            form.register__form.mx-auto(action="")
+                h3.register__title Thông tin cá nhân
+                +form-input('firstName', 'Tên trước', 'text', true)
+                +form-input('lastName', 'Tên sau', 'text', true)
+                +form-input('email', 'Email', 'email', true)
+                +form-input('password', 'Password', 'password', true)
+                .row 
+                    .col-sm-10.offset-md-2
+                        .form-check.mt-4
+                            input#registerFormCheck1.form-check-input(type='checkbox')
+                            label.form-check-label.me-auto(for='registerFormCheck1') Đăng ký nhận bản tin
+                h3.register__title.mt-5 Thông tin đăng nhập
+                +form-input('pass', 'Mật khẩu', 'password', true)
+                +form-input('confirmPass', 'Xác nhận Mật khẩu', 'password', true)
+                .mt-5.d-flex.justify-content-end
+                    button(type='submit').me-3.button Gửi 
+                    a(href='#').button Quay lại
