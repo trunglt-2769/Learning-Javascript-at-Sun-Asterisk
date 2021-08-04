@@ -1,7 +1,25 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
 
 block variables
     - const title = 'Giới thiệu'
     - const current = '/about.html'
 
 block content
+    +breadcrumb(breadcrumb.register, current)
+
+    section.about
+        .container 
+            +top-title(title)
+            .about__inner.mt-5
+                .row 
+                    .col-12.col-lg-5
+                        .about__img 
+                    .col-12.col-lg-6
+                        .about__content
+                        - var {itemTitle, desc1, desc2} = about.content
+                        h1.about__title= itemTitle
+                        p.desc= desc1
+                        p.desc= desc2
+                

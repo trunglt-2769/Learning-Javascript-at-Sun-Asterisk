@@ -1,0 +1,17 @@
+.about {
+  &__img {
+    background: url("../images/top-product-bg.jpg") center center/cover
+      no-repeat;
+    width: 100%;
+    padding-top: 62.5%;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    margin-top: 0;
+
+    @include media-breakpoint(lg) {
+      margin-top: 2rem;
+    }
+  }
+}
