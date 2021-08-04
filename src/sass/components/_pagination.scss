@@ -1,0 +1,20 @@
+.pagination {
+  .page {
+    &-item {
+      &.active {
+        .page-link {
+          background-color: transparent;
+          color: $orange-color;
+        }
+      }
+    }
+
+    &-link {
+      padding: 0 0.4rem;
+      font-size: 1.6rem;
+      font-family: $fifth-font;
+      border: none;
+      color: $light-gray;
+    }
+  }
+}

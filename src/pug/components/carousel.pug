@@ -31,9 +31,9 @@ mixin productCarousel(item)
 	article.product-carousel
 		.row
 			each listItem in item
-				- const {img, imgAlt, type, name, price, originPrice, link} = listItem
+				- const {img, imgAlt, type, detailLink, name, price, originPrice, link} = listItem
 				.col-12.col-md-6.col-lg-3
-					+productBlock(img, imgAlt, type, name, price, originPrice, link)
+					+productBlock(img, imgAlt, type, detailLink, name, price, originPrice, link)
 
 mixin reviewCarousel(item)
 	article.review-carousel.text-center.mt-4

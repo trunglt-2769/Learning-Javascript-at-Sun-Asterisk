@@ -1,7 +1,73 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/pagination.pug
+include ../components/product.pug
 
 block variables
     - const title = 'Danh sách sản phẩm'
     - const current = '/product.html'
     
 block content
+    +breadcrumb(breadcrumb.product, current)
+
+    section.product-banner
+        .container 
+            .product-banner__img
+
+    section.product 
+        .container
+            .row
+                .col-12.col-md-3
+                    aside.product__sidebar
+                        .row
+                            .col-12.col-sm-6.col-md-12
+                                .product__category
+                                    +top-title('Danh mục sản phẩm')
+                                    nav
+                                        each item in product.category 
+                                            - const {type, list} = item
+                                            h4= type
+                                            ul.product__category-list
+                                                each item in list
+                                                    - const {name, qty} = item
+                                                    li.product__category-item
+                                                        a(href='#' class= name === product.category[0].list[2].name ? 'active' : '')= name
+                                                            span=` (${qty})`
+                            .col-12.col-sm-6.col-md-12 
+                                .product__compare.pt-sm-0.pt-md-5
+                                    +top-title('So sánh sản phẩm')
+                                    p.desc Bạn chưa có sản phẩm nào để so sánh
+                                .product__tags
+                                    +top-title('Tag sản phẩm')
+                                    each item in product.tags 
+                                        if item === product.tags[0]
+                                            a(href="#").product__tag.product__tag--active= item
+                                        else 
+                                            a(href="#").product__tag= item
+                                .product__ads
+                                    img(src='./assets/images/product-ads.jpg' alt='product advertisment')
+                .col-12.col-md-9 
+                    .product__main
+                        input#grid-view(type='radio', name='productView', checked)
+                        input#list-view(type='radio', name='productView')
+                        .product__header
+                            .product__view
+                                label(for='grid-view')
+                                    em.fas.fa-th
+                                label(for='list-view')
+                                    em.fas.fa-list
+                            .product__pagination
+                                +pagination('Product pagination', 5)
+                        .product__grid
+                            .row
+                                each item in product.list
+                                    - const {img, imgAlt, type, detailLink, name, price, originPrice, link} = item
+                                    .col-12.col-sm-6.col-lg-4
+                                        +productBlock(img, imgAlt, type, detailLink, name, price, originPrice, link)
+                        .product__list
+                            .row
+                                - for (let i = 1; i <= 4; i++)
+                                    - const {img, imgAlt, detailLink, name, price, desc, link} = product.list[i]
+                                    .col-12
+                                        +productBlockRow(img, imgAlt, detailLink, name, price, desc, link)

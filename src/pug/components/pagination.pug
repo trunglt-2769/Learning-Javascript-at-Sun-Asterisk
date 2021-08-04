@@ -1,0 +1,12 @@
+mixin pagination(pagiLabel, amount, style= 'two')
+    nav(aria-label= pagiLabel)
+        ul.pagination.mb-0(class= style === 'two' ? 'pagination--two' : null)
+            li.page-item
+                a.page-link(href='#' aria-label='Previous')
+                    em.fas.fa-caret-left
+            - for (let i = 1; i <= amount; i++)
+                li.page-item(class= i === 2 ? 'active' : null)
+                    a.page-link(href='#')= i
+            li.page-item
+                a.page-link(href='#' aria-label='Next')
+                    em.fas.fa-caret-right
