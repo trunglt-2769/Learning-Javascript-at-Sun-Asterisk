@@ -1,0 +1,25 @@
+.navTab {
+  .nav {
+    &-link {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: $gray;
+      text-transform: uppercase;
+
+      &.active,
+      &:hover {
+        @include borderRadius;
+        background-color: $primary-color !important;
+        color: $white !important;
+      }
+    }
+  }
+
+  .tab {
+    &-pane {
+      .desc {
+        text-indent: 10px;
+      }
+    }
+  }
+}

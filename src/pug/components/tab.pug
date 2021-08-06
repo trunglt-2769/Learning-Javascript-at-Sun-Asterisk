@@ -1,0 +1,14 @@
+mixin tab(infoData)
+    .navTab 
+        ul#pills-tab.nav.nav-pills.mb-3(role='tablist')
+            - var count = 0
+                each item in infoData
+                    - count++
+                    li.nav-item(role='presentation')
+                        button.nav-link(id=`pills-${count}-tab`, class= count === 1 ? 'active' : null, data-bs-toggle='pill', data-bs-target=`#pills-${count}`, type='button', role='tab', aria-controls=`pills-${count}`, aria-selected= count === 1 ? 'true' : 'false')= item.tabTitle
+        #pills-tabContent.tab-content
+            - var count = 0
+                each item in infoData
+                    - count++
+                    .tab-pane.fade(id=`pills-${count}`, class= count === 1 ? 'show active' : null, role='tabpanel', aria-labelledby=`pills-${count}-tab`)
+                        p.desc= item.desc

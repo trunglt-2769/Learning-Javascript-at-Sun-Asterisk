@@ -1,7 +1,101 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/rating.pug
+include ../components/tab.pug
+include ../components/carousel.pug
+include ../components/product.pug
 
 block variables
     - const title = 'Chi tiết sản phẩm'
     - const current = '/product-detail.html'
     
 block content
+    +breadcrumb(breadcrumb.productDetail, current)
+
+    section.product-detail
+        .container
+            - const {name, price, rating, numberOfReview, desc} = productDetail
+            .row
+                .col-12.col-md-7
+                    .row
+                        .col-3.col-lg-2.d-flex.align-items-center
+                            .thumbnail-carousel
+                                .thumbnail-carousel__control-prev.pb-5
+                                    em.fas.fa-arrow-up
+                                .thumbnail-carousel__img
+                                    each item in productDetail.imageList
+                                        - const {img, imgAlt} = item
+                                        img(class= imgAlt === 'product 7' ? 'active' : null, src=`./assets/images/${img}`, alt= imgAlt)
+                                .thumbnail-carousel__control-next.pt-5
+                                    em.fas.fa-arrow-down
+                        .col-9.col-lg-10.d-flex.align-items-center
+                            .product-detail__img
+                                img(src="../assets/images/Product/7.jpg" alt='Main product images')
+                .col-12.col-md-5
+                    form.product-detail__form
+                        +top-title(name)
+                        .product-detail__price.price= price
+                        .product-detail__review
+                            +rating(rating)
+                            span.ms-3= `${numberOfReview} Review(S) | `
+                            a(href='#') Add Your Review
+                        .color-option
+                            h3.part-title Màu sắc
+                            ul.color-option__list.m-0
+                                each color in productDetail.colors
+                                    li.color-option__item
+                                        input(id=`color-option-${color}` type='radio' name='colorOption' required)
+                                        .square-box.square-box--lg.square-box--white
+                                            label.square-box(class=`square-box--${color}` for=`color-option-${color}` value=color)
+                        .size-option 
+                            h3.part-title Kích cỡ
+                            select(name='wine size')
+                                option(value="big") Loại to
+                                option(value="small") Loại nhỏ
+                        .qty-option
+                            h3.part-title Số lượng
+                            .d-flex
+                                .qty-option__input-group.me-4
+                                    button.qty-option__decrease -
+                                    input(type='number', value='3')
+                                    button.qty-option__increase +
+                                button.button(type="submit") Add to cart
+                    .product-detail__action.mt-5
+                        span.me-5
+                            a(href= '#')
+                                em.fas.fa-heart.me-2
+                                | Yêu thích
+                        span.me-5
+                            a(href= '#')
+                                em.fas.fa-signal.me-2
+                                | So sánh
+                        span.me-5
+                            a(href= '#')
+                                em.fas.fa-envelope.me-2
+                                | Email
+                    .product-detail__desc
+                        h3.part-title Mô tả
+                        p.desc= desc
+                    .product-detail__share.mt-5.d-flex.align-items-center
+                        .fb-share-button(data-href='https://developers.facebook.com/docs/plugins/' data-layout='button_count' data-size='small')
+                            a.fb-xfbml-parse-ignore(target='_blank' href='https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&src=sdkpreparse') Chia sẽ
+                        span.me-4
+                        a.twitter-share-button(href='https://twitter.com/share?ref_src=twsrc%5Etfw' data-show-count='false') Tweet
+                        span.me-4
+                        script(type='IN/Share' data-url='https://www.linkedin.com')
+
+    section.product-tab
+        .container 
+            .row 
+                - const {tabs, wineImg, wineImgContent} = productTab
+                .col-12.col-lg-8.pe-lg-5
+                    +tab(tabs)
+                .col-12.col-lg-4.product-tab__img(style=`background: url(./assets/images/${wineImg}) center center / cover no-repeat`)
+                    h2.product-tab__content.text-center= wineImgContent
+    
+    section.relevant-product 
+        .container
+            - var {itemTitle, carousels} = relevantProducts
+            +top-title(itemTitle, 'special')
+            +carousel('relevantProduct', carousels, 'productCarousel', true)
