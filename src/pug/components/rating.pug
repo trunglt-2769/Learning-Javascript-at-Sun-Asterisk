@@ -1,14 +1,14 @@
 mixin rating(number)
-	-
-		var n = 1
-		var k = number + 1
-	while n < number 
-		em.rating.fas.fa-star
-		if n + 1 > number
-			em.rating.fas.fa-star-half-alt
-		else if n + 1 === number 
-			em.rating.fas.fa-star
-		- n++
-	while k <= 5
-		em.rating.far.fa-star
-		- k++
+    -
+        var n = 1
+        var k = number + 1
+    while n < number 
+        em.rating.fas.fa-star
+        if n + 1 > number
+            em.rating.fas.fa-star-half-alt
+        else if n + 1 === number 
+            em.rating.fas.fa-star
+        - n++
+    while k <= 5
+        em.rating.far.fa-star
+        - k++
