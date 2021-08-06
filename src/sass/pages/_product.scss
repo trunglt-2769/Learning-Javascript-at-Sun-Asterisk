@@ -1,0 +1,141 @@
+.product-banner {
+  &__img {
+    background: url("../images/slide-3.jpg") center center/cover no-repeat;
+    width: 100%;
+    padding-top: 23%;
+  }
+}
+
+.product {
+  padding: 4rem 0;
+
+  &__sidebar {
+    .top-title {
+      &__title {
+        font-size: 1.6rem;
+        letter-spacing: 0.4rem;
+        color: $black;
+      }
+    }
+  }
+
+  &__category {
+    h4 {
+      text-transform: uppercase;
+      color: $gray;
+    }
+
+    .active {
+      &::before {
+        content: "\2022";
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+      }
+    }
+    &-list {
+    }
+
+    &-item {
+    }
+  }
+
+  &__compare,
+  &__tags,
+  &__ads {
+    padding-top: 2.2rem;
+  }
+
+  &__tag {
+    @include borderRadius;
+    display: inline-block;
+    padding: 0.2rem 0.8rem;
+    font-family: $fifth-font;
+    font-size: 1.2rem;
+    color: $gray;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba($light-gray, 0.5);
+
+    &--active,
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+      border-color: $primary-color;
+    }
+  }
+
+  &__ads {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid $light-gray;
+
+    @include media-breakpoint(md) {
+      margin-top: 4rem;
+    }
+  }
+
+  &__view {
+    label {
+      @include transition;
+
+      margin-right: 1rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
+  input {
+    display: none;
+
+    &#grid-view:checked {
+      & ~ .product {
+        &__header {
+          .product__view {
+            label[for="grid-view"] {
+              color: $primary-color;
+            }
+          }
+        }
+
+        &__grid {
+          display: block;
+        }
+      }
+    }
+
+    &#list-view:checked {
+      & ~ .product {
+        &__header {
+          .product__view {
+            label[for="list-view"] {
+              color: $primary-color;
+            }
+          }
+        }
+
+        &__list {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__grid,
+  &__list {
+    display: none;
+  }
+}

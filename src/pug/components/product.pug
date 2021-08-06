@@ -6,22 +6,44 @@ mixin productImg(img= null, imgAlt= null , type= null)
             .row
                 p.product-img__wishlist.col-5.m-0
                     a(href= '#').text-center
-                        em.fas.fa-heart 
-                        |&nbsp Yêu thích
+                        em.fas.fa-heart.me-2 
+                        | Yêu thích
                 p.product-img__compare.col-5.m-0
                     a(href= '#').text-center
-                        em.fas.fa-signal
-                        |&nbsp So sánh
+                        em.fas.fa-signal.me-2
+                        | So sánh
                 p.product-img__zoom-in.col-2.m-0
                     a(href= '#').text-center
                         em.fas.fa-expand-alt
 
-mixin productBlock(img= null, imgAlt= null, type= null, name= null, price= null, originPrice= null, link= null)
+mixin productBlock(img= null, imgAlt= null, type= null, detailLink= null, name= null, price= null, originPrice= null, link= null)
     .product-block.text-center
         +productImg(img, imgAlt, type)
-        h4.product-block__name= name
+        a(href= detailLink)
+            h4.product-block__name= name
         span.price.product-block__price= price 
         span.price.product-block__original-price= originPrice
         br
         a(href= link).button.mt-4 Add to cart
         
+mixin productBlockRow(img= null, imgAlt= null, detailLink= null, name= null, price= null, desc=null, link= null)
+    .product-block.product-block--list
+        .row 
+            .col-12.col-sm-4
+                .product-img
+                    img(src=`./assets/images/${img}` alt= imgAlt)
+            .col-12.col-sm-8.col-xl-6
+                a(href= detailLink)
+                    h4.product-block__name= name
+                span.price.product-block__price= price
+                p.desc.mt-4=desc
+                .row.mt-5.px-2
+                    a.col-4.button(href= link) Add to cart
+                    p.col-4.product-img__wishlist.m-0.text-center.my-auto
+                        a(href= '#')
+                            em.fas.fa-heart.me-2
+                            | Yêu thích
+                    p.col-4.product-img__compare.m-0.text-center.my-auto
+                        a(href= '#')
+                            em.fas.fa-signal.me-2
+                            | So sánh
