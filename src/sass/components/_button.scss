@@ -47,6 +47,12 @@
   padding: 1rem 3rem;
 }
 
+.button--gray {
+  @include borderRadius(4px);
+  background-color: rgba($light-gray, 0.6);
+  color: $black;
+}
+
 .carousel-btn {
   @include borderRadius(50%);
   height: 4rem;

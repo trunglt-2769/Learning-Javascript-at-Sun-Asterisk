@@ -1,0 +1,154 @@
+.blog-detail {
+  &__title {
+    margin-bottom: 3.2rem;
+    text-transform: uppercase;
+    font-family: $fifth-font;
+    font-weight: 400;
+  }
+
+  &__new-post,
+  &__tags {
+    margin-bottom: 2.8rem;
+  }
+
+  &__new-post {
+    .new-post {
+      margin-bottom: 2.8rem;
+      text-transform: uppercase;
+      font-family: $fifth-font;
+
+      img {
+        width: 100%;
+        height: 7.6rem;
+        object-fit: cover;
+      }
+
+      &__title {
+        color: $black;
+      }
+
+      &__date {
+        color: $light-gray;
+      }
+    }
+  }
+
+  &__video {
+    .video {
+      @include relative;
+      background: url("../images/latest-video.jpg") center center/cover
+        no-repeat;
+      width: 100%;
+      padding-top: 62.5%;
+
+      &__play-btn {
+        @include absoluteCenter;
+
+        span {
+          em {
+            font-size: 4.6rem;
+            color: rgba($white, 0.8);
+          }
+        }
+
+        .border-animation {
+          @include absolute(0, null, null, 0);
+          @include animation(pulse-border 1.5s linear infinite);
+          @include borderRadius(50%);
+          width: 4.6rem;
+          height: 4.6rem;
+          border: 1rem solid rgba($white, 0.4);
+
+          &--border-inner {
+            animation-delay: 1s;
+          }
+
+          &--border-outter {
+            animation-delay: 1.5s;
+          }
+        }
+      }
+    }
+  }
+
+  .blogCard {
+    &__content {
+      font-size: 2rem;
+
+      a {
+        display: none;
+      }
+    }
+
+    &__title {
+      margin-top: 4rem;
+      font-size: 2.8rem;
+
+      @include media-breakpoint(sm) {
+        margin-top: 2rem;
+        font-size: 2.2rem;
+      }
+    }
+
+    &__desc {
+      font-style: italic;
+    }
+  }
+
+  .comment {
+    margin-top: 5rem;
+
+    &__title {
+      margin-bottom: 2.8rem;
+      text-transform: uppercase;
+    }
+
+    &__form {
+      font-style: italic;
+
+      .col-form-label {
+        span {
+          color: $hot-color;
+        }
+      }
+    }
+
+    &__list {
+      margin-top: 5rem;
+    }
+
+    &__item {
+      margin-bottom: 3.2rem;
+    }
+
+    &__header {
+      @include borderRadius(5px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      font-style: italic;
+      color: $gray;
+      background-color: rgba($light-gray, 0.4);
+
+      button {
+        padding: 0.4rem;
+        border: none;
+        font-style: italic;
+        text-decoration: underline;
+        color: $dark-gray;
+        background-color: transparent;
+      }
+    }
+
+    &__info {
+      display: inline-block;
+    }
+
+    &__time {
+      display: inline-block;
+      padding-left: 1rem;
+      border-left: 1px solid $light-gray;
+    }
+  }
+}

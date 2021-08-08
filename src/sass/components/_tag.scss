@@ -1,0 +1,29 @@
+.tag {
+  @include borderRadius;
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.8rem;
+  font-family: $fifth-font;
+  font-size: 1.2rem;
+  color: $gray;
+  border: 1px solid rgba($light-gray, 0.5);
+
+  &--active,
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+    border-color: $primary-color;
+  }
+
+  &--special {
+    @include borderRadius(6px);
+    background-color: rgba($light-gray, 0.5);
+
+    &.tag--active,
+    &.tag:hover {
+      background-color: $orange-color;
+      border-color: $orange-color;
+    }
+  }
+}

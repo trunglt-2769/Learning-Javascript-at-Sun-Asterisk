@@ -17,4 +17,34 @@
       color: $light-gray;
     }
   }
+
+  &--two {
+    .page {
+      &-item {
+        &:first-child,
+        &:last-child {
+          a {
+            border: none;
+            background-color: $black;
+            color: white;
+          }
+        }
+        &.active {
+          .page-link {
+            background-color: $gray;
+            border-color: $gray;
+            color: $white;
+          }
+        }
+      }
+
+      &-link {
+        padding: 0.6rem 1.4rem;
+        margin: 0 1.4rem;
+        font-family: $primary-font;
+        border: 1px solid $light-gray;
+        color: $black;
+      }
+    }
+  }
 }
