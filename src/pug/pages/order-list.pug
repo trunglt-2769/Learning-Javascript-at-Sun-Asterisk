@@ -1,7 +1,74 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
 
 block variables
     - const title = 'Danh sách đơn hàng'
     - const current = '/order-list.html'
     
 block content
+    +breadcrumb(breadcrumb.orderList, current)
+
+    section.order
+        .container 
+            +top-title('Đơn hàng')
+            .row
+                .col-lg-9
+                    .order__top.mt-3
+                        - const {cancelled, unapproved, approved, paid, bought, delivering, finished} = order.status
+                        h2.order__top-title Danh sách đơn hàng
+                        p.m-0 Trạng thái
+                            a.ms-3(href='#')= `Tất cả (${cancelled + unapproved + approved + paid + bought + delivering + finished})`
+                            a(href='#')= `Đã hủy (${cancelled})`
+                            a(href='#')= `Chưa duyệt (${unapproved})`
+                            a(href='#')= `Đã duyệt (${approved})`
+                            a(href='#')= `Đã thanh toán - chờ mua hàng (${paid})`
+                            a(href='#')= `Đã mua hàng (${bought})`
+                            a(href='#')= `Hàng đã về - chờ gian hàng (${delivering})`
+                            a(href='#')= `Đã kết thúc (${finished})`
+                    .order__table
+                        table 
+                            thead 
+                                tr 
+                                    th STT 
+                                    th Mã hóa đơn/ngày mua hàng
+                                    th Kho nhận Hàng
+                                    th Số sp
+                                    th Tổng tiền 
+                                    th Tình Trạng
+                                    th Thao tác
+                            tbody
+                                each item in order.list
+                                    - const {billCode, orderDate, dateTime, warehouse, qty, total, status} = item 
+                                    tr
+                                        td
+                                        td.text-start
+                                            p.m-0= `${billCode} - ${orderDate}`
+                                            p.fs-5.desc.m-0= dateTime
+                                        td= warehouse
+                                        td= qty
+                                        td= `${total}đ`
+                                        td= status
+                                        td
+                                            a(href='#') Chi tiết
+                .col-lg-3 
+                    .user-info.mt-3
+                        h3 Thông tin khách hàng
+                        - var {name, email, placeName, address, phoneNumber} = order.customerInfo
+                        .user-info__content
+                            .user-info__item
+                                em.fas.fa-user
+                                .ps-5 
+                                    p= name
+                                    p= email
+                            .user-info__item
+                                em.fas.fa-map-marker-alt
+                                .ps-5 
+                                    p= placeName
+                                    p= address
+                            .user-info__item
+                                em.fas.fa-phone-alt
+                                .ps-5
+                                    p= phoneNumber
+                            .mt-5
+                                a(href="#") Chi tiết địa chỉ
