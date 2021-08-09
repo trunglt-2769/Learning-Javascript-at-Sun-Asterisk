@@ -1,0 +1,40 @@
+.address {
+  &__title {
+    margin-bottom: 3.2rem;
+    text-transform: uppercase;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  &__show {
+    margin-top: 2.2rem;
+  }
+
+  &__show,
+  &__edit {
+    display: none;
+  }
+
+  @for $i from 0 through 2 {
+    input#addressEdit#{$i}:checked {
+      & ~ #addressFormEdit#{$i} {
+        display: block;
+      }
+    }
+
+    input#addressSave#{$i}:checked {
+      & ~ #addressFormShow#{$i} {
+        display: block;
+      }
+    }
+
+    input#addressDelete#{$i}:checked {
+      & ~ #addressFormEdit#{$i},
+      & ~ #addressFormShow#{$i} {
+        display: none;
+      }
+    }
+  }
+}

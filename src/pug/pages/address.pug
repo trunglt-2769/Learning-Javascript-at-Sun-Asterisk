@@ -1,7 +1,75 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/input.pug
 
 block variables
     - const title = 'Địa chỉ'
     - const current = '/address.html'
 
 block content
+    +breadcrumb(breadcrumb.address, current)
+
+    section.address
+        .container 
+            +top-title(title)
+            .row.gx-0.gx-lg-5
+                .col-12.col-lg-6
+                    - var {cityOption, nationOption, list} = userInfo
+                    h2.address__title Địa chỉ của bạn
+                    - for(var i = 0; i < list.length; i++)
+                        - var {firstName, lastName, company, address, city, nation, zipCode, phone} = list[i]
+                        input(id=`addressSave${i}`, type='radio', name=`addressForm${i}`, checked)
+                        input(id=`addressEdit${i}`, type='radio', name=`addressForm${i}`)
+                        input(id=`addressDelete${i}`, type='radio', name=`addressForm${i}`)
+                        .address__show(id= `addressFormShow${i}`)
+                            +form-show("Tên ", firstName)
+                            +form-show("Họ & tên đệm ", lastName)
+                            +form-show("Công ty ", company)
+                            +form-show("Địa chỉ ", address)
+                            +form-show("Thành phố ", city.label)
+                            +form-show("Quốc tịch ", nation.label)
+                            +form-show("Postal/Zip Code ", zipCode)
+                            +form-show("Phone ", phone)
+                            .d-flex.justify-content-end 
+                                button.button--add-update.my-4
+                                    label(for=`addressEdit${i}`) Chỉnh sửa địa chỉ
+                            <hr>
+                        .address__edit(id= `addressFormEdit${i}`)
+                            +form-input(`firstName${i}`, 'Tên', 'text', false, firstName)
+                            +form-input(`lastName${i}`, 'Họ & tên đệm', 'text', false, lastName)
+                            +form-input(`company${i}`, 'Công ty', 'text', false, company)
+                            +form-input(`address${i}`, 'Địa chỉ', 'text', false, address)
+                            +form-select(`city${i}`, 'Thành phố', false, city, cityOption)
+                            +form-select(`nation${i}`, 'Quốc tịch', false, nation, nationOption)
+                            +form-input(`zipCode${i}`, 'Postal/Zip Code', 'text', false, zipCode)
+                            +form-input(`phone${i}`, 'Phone', 'text', false, phone)
+                            .col-sm-10.offset-sm-2.mt-4
+                                .form-check
+                                        input.form-check-input(id=`defaultCheck${i}` type='checkbox')
+                                        label.form-check-label(for=`defaultCheck${i}`) Đặt làm địa chỉ mặc định ?
+                                button.button.button--save.label-btn.my-4.me-2
+                                    label(for=`addressSave${i}`) Chỉnh sửa địa chỉ
+                                button.button.label-btn.my-4
+                                    label(for=`addressDelete${i}`) Xóa
+                            hr
+                .col-12.col-lg-6
+                    button.button--add-update.mt-4.mt-md-0.mb-4
+                        label(for=`addressAdd`) Thêm địa chỉ
+                    .address__add
+                        - var {firstName, lastName, company, address, city, nation, zipCode, phone} = list[0]
+                        +form-input(`firstName`, 'Tên', 'text', false, firstName)
+                        +form-input(`lastName`, 'Họ & tên đệm', 'text', false, lastName)
+                        +form-input(`company`, 'Công ty', 'text', false, company)
+                        +form-input(`address`, 'Địa chỉ', 'text', false, address)
+                        +form-select(`city`, 'Thành phố', false, city, cityOption)
+                        +form-select(`nation`, 'Quốc tịch', false, nation, nationOption)
+                        +form-input(`zipCode`, 'Postal/Zip Code', 'text', false, zipCode)
+                        +form-input(`phone`, 'Phone', 'text', false, phone)
+                        .col-sm-10.offset-sm-2.mt-4
+                            .form-check
+                                    input.form-check-input(id=`defaultCheck` type='checkbox')
+                                    label.form-check-label(for='defaultCheck') Đặt làm địa chỉ mặc định ?
+                            button.button.button--save.label-btn.mt-4.me-2
+                                label(for=`addressSave`) Cập nhật địa chỉ
+                            a.button.mt-4(href='/order-list.html') Thoát

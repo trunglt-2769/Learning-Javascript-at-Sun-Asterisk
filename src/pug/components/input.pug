@@ -1,12 +1,35 @@
-mixin form-input(id, label, type, isRequired= false)
+mixin form-input(id, label, type, isRequired= false, value)
     .form-input.form-group
         .row 
             .col-sm-2
                 label.form-input__label.col-form-label(for= id)= label
                     if isRequired
-                        span &nbsp*
+                        span.ms-1 *
             .col-sm-10 
                 if isRequired
-                    input.form-input__input.form-control(id= id, type= type, required)
+                    input.form-input__input.form-control(id= id, name= id, type= type, value= value, required)
                 else 
-                    input.form-input__input.form-control(id= id, type= type)
+                    input.form-input__input.form-control(id= id, name= id, type= type, value= value)
+                    
+mixin form-select(id, formLabel, isRequired= false, selectValue, optionValue)
+    .form-input-select.form-input
+        .row 
+            .col-sm-2
+                label.form-input__label.col-form-label(for= id, name= id)= formLabel
+                    if isRequired
+                        span.ms-1 *
+            .col-sm-10
+                select.form-select.form-select-lg.h-100(aria-label= formLabel)
+                    option(value= selectValue.value)= selectValue.label
+                    each item in optionValue
+                        - const {value, label} = item
+                        if value !== selectValue.value
+                            option(value= value)= label
+
+mixin form-show(label, info)
+    .form-show.form-group
+        .row
+            .col-3.col-sm-2
+                label.col-form-label= label
+            .col-9.col-sm-10
+                .col-form-label= info
