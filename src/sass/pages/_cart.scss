@@ -1,0 +1,59 @@
+.cart {
+  &__table {
+    @include media-breakpoint(md) {
+      overflow: scroll;
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        background-color: rgba($light-gray, 0.1);
+        border: 1px solid rgba($light-gray, 0.5);
+
+        th,
+        td {
+          text-transform: uppercase;
+          text-align: center;
+          padding: 1.6rem 2rem;
+        }
+
+        td {
+          font-size: 1.3rem;
+
+          img {
+            max-height: 150px;
+          }
+
+          input {
+            text-align: center;
+            width: 6rem;
+            line-height: 2.4rem;
+            border: 1px solid $light-gray;
+          }
+        }
+      }
+    }
+  }
+
+  &__remove {
+    cursor: pointer;
+  }
+
+  &__group-button {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 3rem;
+
+    @include media-breakpoint(sm) {
+      justify-content: center;
+    }
+
+    a:first-child {
+      @include media-breakpoint(sm) {
+        width: 100%;
+      }
+    }
+  }
+}

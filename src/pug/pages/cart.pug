@@ -1,7 +1,45 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
 
 block variables
     - const title = 'Giỏ hàng'
     - const current = '/cart.html'
     
 block content
+    +breadcrumb(breadcrumb.cart, current)
+
+    section.cart 
+        .container 
+            +top-title(title)
+            .cart__table
+                table.mt-5
+                    thead
+                        tr
+                            th Ảnh
+                            th Tên sản phẩm
+                            th Giá
+                            th Số lượng
+                            th Tổng Số
+                            th Xóa
+                    tbody
+                        each item in cart.items
+                            - const {img, imgAlt, name, price, qty} = item 
+                            tr 
+                                td 
+                                    img(src=`./assets/images/Product/${img}` alt= imgAlt)
+                                td
+                                    .cart-item__name= name
+                                td
+                                    h4.price= price
+                                td 
+                                    input(type='number' value= qty)
+                                td
+                                    h4.price= price * qty
+                                td
+                                    em.cart__remove.far.fa-trash-alt
+            .cart__group-button
+                a(href='#').me-sm-3.button Tiếp tục mua hàng 
+                a(href='#').flex-grow-1.flex-sm-grow-0.me-3.mt-3.mt-sm-0.button Xóa
+                a(href='#').flex-grow-1.flex-sm-grow-0.mt-3.mt-sm-0.button Cập nhật
+                    
