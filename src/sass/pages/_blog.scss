@@ -1,0 +1,13 @@
+.blog {
+  .blogCard {
+    &:hover {
+      .blogCard__title {
+        color: $primary-color;
+      }
+    }
+
+    a {
+      color: $primary-color;
+    }
+  }
+}
