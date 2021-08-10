@@ -1,7 +1,19 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/card.pug
 
 block variables
     - const title = 'Blog'
     - const current = '/blog.html'
 
 block content
+    +breadcrumb(breadcrumb.blog, current)
+
+    section.blog 
+        .container 
+            +top-title(title)
+            .row.mt-5
+                each item in blog.list
+                    .col-12.col-sm-6.col-lg-4.mb-3.mb-md-5  
+                        +blog-card(item)
