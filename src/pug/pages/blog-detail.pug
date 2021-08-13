@@ -1,7 +1,82 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/card.pug
+include ../components/input.pug
+include ../components/pagination.pug
 
 block variables
     - const title = 'Chi tiết Blog'
     - const current = '/blog-detail.html'
 
 block content
+    +breadcrumb(breadcrumb.blogDetail, current)
+
+    section.blog-detail 
+        .container
+            +top-title('Blog')
+            .row.mt-5.gx-0.gx-md-4.gx-lg-5
+                .col-12.col-md-3
+                    aside.blog-detail__sidebar
+                        .blog-detail__new-post
+                            h2.blog-detail__title Bài viết mới nhất
+                            each item in blogDetail.newPost
+                                - const {img, imgAlt, link, postTitle, date} = item 
+                                    .new-post
+                                        .row
+                                            .col-4
+                                                img(src=`./assets/images/${img}`, alt=imgAlt)
+                                            .col-8 
+                                                a(href= link)
+                                                    h5.new-post__title= postTitle
+                                                p.new-post__date
+                                                    em.me-2.far.fa-calendar
+                                                    span= date
+                        .blog-detail__tags 
+                            h2.blog-detail__title Blog tags
+                            each item in blogDetail.tags 
+                                if item === blogDetail.tags[0]
+                                    a(href="#").tag.tag--special.tag--active= item
+                                else 
+                                    a(href="#").tag.tag--special= item
+                        .blog-detail__video
+                            h2.blog-detail__title Latest video
+                            .video 
+                                a.video__play-btn(href="https://www.youtube.com/watch?v=p37_Ux1G_BI")
+                                    span
+                                        em.fas.fa-play-circle
+                                    span.border-animation.border-animation--border-inner
+                                    span.border-animation.border-animation--border-outter
+                .col-12.col-md-9
+                    .blog-detail__content.mt-5.mt-md-0
+                        - const {post, comments} = blogDetail
+                        +blog-card(post)
+                        .comment
+                            form.comment__form
+                                h2.comment__title Đóng góp ý kiến
+                                .mt-5
+                                    +form-input('name', 'Tên', 'text', true)
+                                .mt-5
+                                    +form-input('email', 'Email', 'email', true)
+                                .row.mt-5
+                                    .col-sm-2
+                                        label.form-input__label.col-form-label(for='comment') Ý kiến
+                                            span.ms-1 *
+                                    .col-sm-10
+                                        textarea#comment.form-control(rows="16" required)
+                                .row.mt-5 
+                                    .col-sm-10.offset-sm-2
+                                        button.button.button--lg.button--gray(type='submit') Gửi ý kiến
+                            .comment__list
+                                h2.comment__title= `Bình luận (${comments.length})`
+                                each item in comments
+                                    - const {author, time, comment} = item
+                                    .comment__item 
+                                        .comment__header 
+                                            .comment__info
+                                                span.me-5= `Bình luận bởi ${author}`
+                                                .comment__time= `Cách đây ${time} giờ`
+                                            button(type='button') Trả lời 
+                                        .comment__content.desc.p-4= comment
+                                .d-flex.justify-content-center.justify-content-sm-end
+                                    +pagination('comment pagination', 3, 'two')

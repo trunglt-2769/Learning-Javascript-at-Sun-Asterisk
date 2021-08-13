@@ -46,25 +46,6 @@
     padding-top: 2.2rem;
   }
 
-  &__tag {
-    @include borderRadius;
-    display: inline-block;
-    padding: 0.2rem 0.8rem;
-    font-family: $fifth-font;
-    font-size: 1.2rem;
-    color: $gray;
-    margin-right: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid rgba($light-gray, 0.5);
-
-    &--active,
-    &:hover {
-      background-color: $primary-color;
-      color: $white;
-      border-color: $primary-color;
-    }
-  }
-
   &__ads {
     img {
       width: 100%;

@@ -42,9 +42,9 @@ block content
                                     +top-title('Tag sản phẩm')
                                     each item in product.tags 
                                         if item === product.tags[0]
-                                            a(href="#").product__tag.product__tag--active= item
+                                            a(href="#").tag.tag--active= item
                                         else 
-                                            a(href="#").product__tag= item
+                                            a(href="#").tag= item
                                 .product__ads
                                     img(src='./assets/images/product-ads.jpg' alt='product advertisment')
                 .col-12.col-md-9 
