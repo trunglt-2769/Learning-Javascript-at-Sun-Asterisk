@@ -1,7 +1,58 @@
 extends ../base/base.pug
+include ../components/breadcrumb.pug
+include ../components/top-title.pug
+include ../components/input.pug
 
 block variables
     - const title = 'Liên hệ'
     - const current = '/contact.html'
     
 block content
+    +breadcrumb(breadcrumb.contact, current)
+
+    section.contact
+        .container
+            +top-title(title)
+            .row.mt-5.gx-5
+                - var {img, imgAlt, address, phone, email, social} = contact
+                .col-12.col-lg-8.order-2.order-lg-1.mt-5.mt-lg-0
+                    iframe.w-100(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.87351267102!2d105.80821461540238!3d21.0377464928463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab146438e693%3A0xcb7701dcb90d3314!2sT%C3%B2a%20Nh%C3%A0%20Vp%20Hanoi%20Group!5e0!3m2!1svi!2s!4v1628484681823!5m2!1svi!2s' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+                    form.contact__form
+                        .mt-5
+                            +form-input('name', 'Your Name', 'text')
+                        .mt-5
+                            +form-input('email', 'Your Email', 'email')
+                        .mt-5
+                            +form-input('suvject', 'Subject', 'text')
+                        .row.mt-5
+                            .col-sm-2
+                                label.form-input__label.col-form-label(for='message') Your Message
+                            .col-sm-10
+                                textarea#message.form-control(rows="10")
+                        .row.mt-5 
+                            .col-sm-10.offset-sm-2
+                                button.button.button--lg(type='submit') Gửi
+                .col-12.col-lg-4.order-1.order-lg-2.pe-lg-5
+                    .contact__logo
+                        img(src=`../assets/images/${img}` alt= imgAlt)
+                    .contact__info
+                        em.fas.fa-map-marker-alt
+                        .ps-5 
+                            p= address
+                    .contact__info
+                        em.fas.fa-phone-alt
+                        .ps-5
+                            p= phone
+                    .contact__info
+                        em.fas.fa-envelope
+                        .ps-5 
+                            p= email
+                    .contact__social 
+                        h3 FOLLOW US:
+                        nav
+                            ul
+                                each item in social
+                                    - const {icon, link} = item 
+                                    li 
+                                        a(href= link)
+                                            em(class= icon)
