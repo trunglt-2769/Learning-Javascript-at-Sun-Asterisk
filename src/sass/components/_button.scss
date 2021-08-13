@@ -53,6 +53,34 @@
   color: $black;
 }
 
+.button--save {
+  background-color: $save-color;
+}
+
+.button--add-update {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+
+  & label {
+    cursor: pointer;
+    font-size: 1.8rem;
+    color: $save-color;
+    text-decoration: underline;
+  }
+}
+
+.label-btn {
+  &.button {
+    padding: 0;
+  }
+
+  label {
+    padding: 0.4rem 1.6rem;
+    cursor: pointer;
+  }
+}
+
 .carousel-btn {
   @include borderRadius(50%);
   height: 4rem;
