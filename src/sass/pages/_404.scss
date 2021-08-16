@@ -1,0 +1,52 @@
+.error {
+  &__top {
+    background: url("../images/404.jpg") top center/contain no-repeat;
+    width: 100%;
+    padding-top: 36%;
+  }
+
+  &__bottom {
+    font-family: $fifth-font;
+    text-transform: uppercase;
+
+    ul,
+    li,
+    a {
+      margin-bottom: 0;
+      display: inline-block;
+      color: black;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    &-list {
+      padding: 1rem 0;
+    }
+
+    &-logo {
+      margin-right: 3rem;
+    }
+
+    &-item {
+      margin-right: 2rem;
+
+      &::after {
+        content: "\27A7";
+      }
+    }
+
+    &-link {
+      text-decoration: underline;
+    }
+
+    form {
+      margin: 2rem 0;
+      max-width: 140px;
+    }
+  }
+}

@@ -5,3 +5,19 @@ block variables
     - const current = '/404.html'
 
 block content
+    section.error
+        .container-fluid.p-0
+            .error__top
+            .error__bottom
+                nav.error__nav
+                    a.error__nav-logo(href="/")
+                        img(src='./assets/images/logo-black.png', alt="Brand logo")
+                    ul.error__nav-list
+                        li.error__nav-item
+                            a.error__nav-link(href='/index.html') Trang chủ
+                        li.error__nav-item
+                            a.error__nav-link(href='/contact.html') Liên hệ
+                    form.input-group.rounded
+                        span#search-addon.input-group-text
+                                em.fas.fa-search
+                        input.form-control.rounded(type='search' aria-label='Search' aria-describedby='search-addon')
