@@ -1,0 +1,49 @@
+.contact {
+  &__form,
+  &__info,
+  &__social {
+    font-family: $fifth-font;
+    color: $gray;
+  }
+
+  &__form {
+    input,
+    textarea {
+      background-color: rgba($light-gray, 0.1);
+    }
+  }
+
+  &__info {
+    @include relative;
+    margin-top: 1.6rem;
+
+    em {
+      @include absolute(0.5rem, null, null, 0);
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__social {
+    margin-top: 3.6rem;
+
+    nav {
+      margin-top: 1.6rem;
+
+      ul {
+        li {
+          display: inline-block;
+          margin-right: 1rem;
+
+          a {
+            em {
+              font-size: 1.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
