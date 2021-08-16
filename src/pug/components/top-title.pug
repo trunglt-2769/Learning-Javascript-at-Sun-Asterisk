@@ -1,4 +1,4 @@
 mixin top-title(title, underline= 'arrow')
-    article.top-title(class= underline === 'special' ? 'top-title--special text-center' : null)
+    .top-title(class= underline === 'special' ? 'top-title--special text-center' : null)
         h2.top-title__title= title 
         img.top-title__under(src=`./assets/images/underline-${underline}.png`, alt=`${underline} title underline`)

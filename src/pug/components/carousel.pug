@@ -1,5 +1,5 @@
 mixin carousel(id, infoData, infoMixin, hasControlBtn= true)
-	article.carousel.slide(id= id, data-bs-ride='carousel')
+	.carousel.slide(id= id, data-bs-ride='carousel')
 		.carousel-indicators
 			- var count = 0
 			each item in infoData
@@ -20,7 +20,7 @@ mixin carousel(id, infoData, infoMixin, hasControlBtn= true)
 				span.visually-hidden Next
 
 mixin headerCarousel(item)
-	article.header__carousel-container
+	.header__carousel-container
 		img.header__carousel-img(src="./assets/images/" + item.imgFile, alt= item.subtitle)
 		.header__carousel-content
 			h2.header__carousel-title= item.title
@@ -28,7 +28,7 @@ mixin headerCarousel(item)
 				span.header__carousel-subtitle= item.subtitle
 
 mixin productCarousel(item)
-	article.product-carousel
+	.product-carousel
 		.row
 			each listItem in item
 				- const {img, imgAlt, type, detailLink, name, price, originPrice, link} = listItem
@@ -36,7 +36,7 @@ mixin productCarousel(item)
 					+productBlock(img, imgAlt, type, detailLink, name, price, originPrice, link)
 
 mixin reviewCarousel(item)
-	article.review-carousel.text-center.mt-4
+	.review-carousel.text-center.mt-4
 		- var {desc, img, imgAlt, name, job} = item
 		img.mt-3(src="./assets/images/quote.png", alt="quote")
 		p.customerReview__desc.text-center= desc

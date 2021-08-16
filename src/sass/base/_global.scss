@@ -24,6 +24,7 @@ li {
 }
 
 a {
+  @include transition;
   color: $gray;
   text-decoration: none;
 

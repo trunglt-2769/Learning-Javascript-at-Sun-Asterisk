@@ -66,7 +66,7 @@ block content
 
     section.blog-customer
         .container 
-            .row
+            .row.gx-0.gx-md-5
                 .col-12.col-md-6.col-lg-8
                     .blogCard-container 
                         - var {itemTitle, blogCards} = newsAndBlog
@@ -83,11 +83,11 @@ block content
                         +carousel('customerReview', carousels, 'reviewCarousel', false)
 
     section.popup 
-        input.popup__close(type='checkbox')
-        em.popup__close-icon.fas.fa-times
-        
+        input#popupClose.popup__close(type='checkbox')
+                
         .popup__container
             .popup__block
+                label.close-icon(for='popupClose')
                 .row
                     .col-lg-4.d-none.d-lg-block
                         .popup__img
@@ -102,4 +102,4 @@ block content
                                     button.btn.button.p-3 Gửi email
                                 .form-check.mt-4
                                     input#popupCheck.form-check-input(type='checkbox')
-                                    label.form-check-label.me-auto(for='popupCheck') Không hiển thị lại thông báo này
+                                    label.form-check-label.ms-2(for='popupCheck') Không hiển thị lại thông báo này
