@@ -7,7 +7,32 @@ header.header
                 ul.header__top-list
                     each item in header.topItems
                         li.header__top-item
-                            a.header__top-link(href= item.link, class=`${current === item.link ? 'active' : ''}`)= item.title
+                            if item.link === '/cart.html'
+                                a.header__top-link.header__cart(href= item.link, class=`${current === item.link ? 'active' : ''}`)= item.title
+                                    span.ms-2.header__cart-numbers
+                                    #headerCart
+
+
+
+                                    
+                                    //- .header__cart-block
+                                    //-     header.header__cart-header Sản Phẩm Mới Thêm
+                                    //-     ul.header__cart-list
+                                    //-         li.header__cart-item 
+                                    //-             a.header__cart-link(href='/product-detail.html') 
+                                    //-                 img.header__cart-item-img(src='./assets/images/Product/1.jpg')
+                                    //-                 h2.header__cart-item-title Rượu Chivas 1
+                                    //-                 span.price 250.000
+                                    //-     a.button.mb-3(href='/cart.html') Xem Giỏ Hàng
+
+                                    //- .header__cart-block.header__cart-block--no-cart
+                                    //-     img.header__cart-no-cart-img(src='./assets/images/no-cart.png' alt='no cart image')
+                                    //-     span.header__cart-message Chưa có sản phẩm
+
+
+
+                            else 
+                                a.header__top-link(href= item.link, class=`${current === item.link ? 'active' : ''}`)= item.title
                 form.d-flex
                     input.bg-transparent.form-control.me-2.py-0(type='search' placeholder='Tìm kiếm ở đây...' aria-label='Search')
                     button.btn(type='submit')

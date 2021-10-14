@@ -25,18 +25,47 @@
       color: $gray;
     }
 
-    .active {
-      &::before {
-        content: "\2022";
-        font-weight: bold;
-        display: inline-block;
-        width: 1em;
-      }
-    }
     &-list {
     }
 
     &-item {
+      @include transition;
+      color: $gray;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.active {
+        &::before {
+          content: "\2022";
+          font-weight: bold;
+          display: inline-block;
+          width: 1em;
+        }
+      }
+    }
+  }
+
+  &__price-category {
+    &-item {
+      @include transition;
+      color: $gray;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-color;
+      }
+
+      &.active {
+        &::before {
+          content: "\2022";
+          font-weight: bold;
+          display: inline-block;
+          width: 1em;
+        }
+      }
     }
   }
 
@@ -63,6 +92,22 @@
 
     @include media-breakpoint(md) {
       margin-top: 4rem;
+    }
+  }
+
+  &__price-sort {
+    select {
+      width: 14rem;
+      font-size: 1.4rem;
+      border-color: $primary-color;
+    }
+  }
+
+  &__limit-show {
+    select {
+      width: 6rem;
+      font-size: 1.4rem;
+      border-color: $primary-color;
     }
   }
 

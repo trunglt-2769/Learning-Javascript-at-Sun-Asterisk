@@ -1,0 +1,15 @@
+extends ../base/base.pug
+include ../components/progress-bar.pug
+
+block variables
+    - const title = 'Đặt hàng thành công'
+    - const current = '/complete-order.html'
+
+block content
+    section.payment-info
+        .container.mt-5
+            +progressBar('Thanh toán')
+            .pt-5.d-flex.flex-column.align-items-center
+                h2.fs-1 Quý khách đã đặt hàng thành công
+                p.fs-3 Vui lòng kiểm tra email để nhận thông tin chi tiết
+                a.button.mt-3(href='/index.html') Tiếp tục mua hàng 

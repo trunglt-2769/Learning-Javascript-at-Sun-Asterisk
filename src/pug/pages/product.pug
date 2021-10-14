@@ -10,31 +10,43 @@ block variables
     
 block content
     +breadcrumb(breadcrumb.product, current)
-
+    
     section.product-banner
         .container 
             .product-banner__img
-
-    section.product 
+    
+    section.product
+        #toast 
         .container
             .row
                 .col-12.col-md-3
                     aside.product__sidebar
                         .row
                             .col-12.col-sm-6.col-md-12
-                                .product__category
+                                .product__category#productCategory
                                     +top-title('Danh mục sản phẩm')
-                                    nav
-                                        each item in product.category 
-                                            - const {type, list} = item
-                                            h4= type
-                                            ul.product__category-list
-                                                each item in list
-                                                    - const {name, qty} = item
-                                                    li.product__category-item
-                                                        a(href='#' class= name === product.category[0].list[2].name ? 'active' : '')= name
-                                                            span=` (${qty})`
+                                    nav#categoriesList
+                                        h4 Rượu ngoại
+                                        ul.product__category-list
+                                        //- each item in product.category 
+                                        //-     - const {type, list} = item
+                                        //-     h4= type
+                                        //-     ul.product__category-list
+                                        //-         each item in list
+                                        //-             - const {name, qty} = item
+                                        //-             li.product__category-item
+                                        //-                 a(href='#' class= name === product.category[0].list[2].name ? 'active' : '')= name
+                                        //-                     span=` (${qty})`
+                                .product__price-filter.pt-sm-0.pt-md-5
+                                    +top-title('Tìm theo mức giá')
+
+                                    nav#priceCategoriesList
+                                        ul.product__price-category-list
+                                            li.product__price-category-item(data-category = 0) Dưới 200.0000đ
+                                            li.product__price-category-item(data-category = 1) Từ 200.0000đ đến 500.000đ
+                                            li.product__price-category-item(data-category = 2) Trên 500.000đ
                             .col-12.col-sm-6.col-md-12 
+                                
                                 .product__compare.pt-sm-0.pt-md-5
                                     +top-title('So sánh sản phẩm')
                                     p.desc Bạn chưa có sản phẩm nào để so sánh
@@ -57,17 +69,32 @@ block content
                                     em.fas.fa-th
                                 label(for='list-view')
                                     em.fas.fa-list
+                            .product__price-sort.d-flex
+                                label.form-input__label.col-form-label.me-2 Sắp xếp giá:
+                                select.form-select.form-select-lg.h-100(aria-label= formLabel)
+                                    option.fs-4.m-5(value='default' selected) Mặc định
+                                    option.fs-4(value='asc') Giá tăng dần
+                                    option.fs-4(value='desc') Giá giảm dần
+                            .product__limit-show.d-flex
+                                label.form-input__label.col-form-label.me-2 Hiển thị:
+                                select.form-select.form-select-lg.h-100(aria-label= formLabel)
+                                    option.fs-4.m-5(value='default' selected) 6
+                                    option.fs-4(value='9') 9
+                                    option.fs-4(value='12') 12
+                            button.product__clear-filter-btn.btn.btn-outline-danger.fs-4 Bỏ lọc
                             .product__pagination
-                                +pagination('Product pagination', 5)
-                        .product__grid
+                                nav(aria-label= pagiLabel)
+                                    ul.pagination.mb-0
+                                //- +pagination('Product pagination', 5)
+                        .product__grid#productsGrid
                             .row
-                                each item in product.list
-                                    - const {img, imgAlt, type, detailLink, name, price, originPrice, link} = item
-                                    .col-12.col-sm-6.col-lg-4
-                                        +productBlock(img, imgAlt, type, detailLink, name, price, originPrice, link)
-                        .product__list
+                            //-     each item in product.list
+                            //-         - const {img, imgAlt, type, detailLink, name, price, originPrice, link} = item
+                            //-         .col-12.col-sm-6.col-lg-4
+                            //-             +productBlock(img, imgAlt, type, detailLink, name, price, originPrice, link)
+                        .product__list#productsList
                             .row
-                                - for (let i = 1; i <= 4; i++)
-                                    - const {img, imgAlt, detailLink, name, price, desc, link} = product.list[i]
-                                    .col-12
-                                        +productBlockRow(img, imgAlt, detailLink, name, price, desc, link)
+                            //-     - for (let i = 1; i <= 4; i++)
+                            //-         - const {img, imgAlt, detailLink, name, price, desc, link} = product.list[i]
+                            //-         .col-12
+                            //-             +productBlockRow(img, imgAlt, detailLink, name, price, desc, link)

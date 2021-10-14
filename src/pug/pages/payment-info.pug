@@ -1,0 +1,32 @@
+extends ../base/base.pug
+include ../components/progress-bar.pug
+include ../components/top-title.pug
+include ../components/input.pug
+
+block variables
+    - const title = 'Thông tin thanh toán'
+    - const current = '/payment-info.html'
+
+block content
+    section.payment-info__content
+        .container.mt-5
+            +progressBar('Địa chỉ giao hàng')
+            .pt-5
+            +top-title(title)
+            .row
+                .col-12
+                    form.address__add#form-1(action="/complete-order.html" method="POST")
+                        .row.gx-0.gx-lg-5
+                            .col-12.col-lg-6
+                                +form-input(`fullName`, 'Họ & Tên', 'text', true, '', 'Nhập họ và tên')
+                            .col-12.col-lg-6
+                                +form-input(`phone`, 'Số điện thoại', 'text', true, '', 'Nhập số điện thoại')
+                            .col-12.col-lg-6
+                                +form-input(`email`, 'Email', 'email', true, '', 'Nhập địa chỉ email')
+                            .col-12.col-lg-6
+                                +form-input(`address`, 'Địa chỉ', 'text', true, '', 'Nhập địa chỉ nhận hàng')
+                        .cart__group-button
+                            a.cart__continue-buy-btn.me-sm-3.button(href='/cart.html') Quay lại 
+                            button.cart__next-btn.flex-grow-1.flex-sm-grow-0.mt-3.mt-sm-0.button.button--save(type="submit") Đặt mua
+                        
+            

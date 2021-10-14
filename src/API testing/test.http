@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:5000/api
+
+# Categories
+
+# @name getAllCategories
+GET {{baseUrl}}/products?_page=1&_limit=6&price_lte=&price_gte
+
+###
+
+# @name addNewCategory
+POST {{baseUrl}}/orders
+Content-Type: application/json
+
+{
+  "name": "no name",
+  "email": "abcjjas@gmail.com"
+}
+
+# # @name getCategories
+# GET http://localhost:3000/api/products?_page=1&_limit=6&categoryId=3
+
+
+# # @name getProductByCategoryNumber
+# GET http://localhost:3000/api/products?_page=2&_limit=6&categoryId=3

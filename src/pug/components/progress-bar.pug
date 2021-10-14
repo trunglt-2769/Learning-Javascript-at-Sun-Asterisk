@@ -1,0 +1,7 @@
+mixin progressBar(step= null)
+    .progressBar
+        each item in [{title: 'Giỏ hàng', icon: 'fas fa-shopping-cart'}, {title: 'Địa chỉ giao hàng', icon: 'fas fa-user'}, {title: 'Thanh Toán', icon: 'fas fa-check'}]
+            .progress-step(class = step === item.title ? 'is-active' : null)
+                .step-count
+                    em(class = item.icon)
+                .step-description.fs-3= item.title

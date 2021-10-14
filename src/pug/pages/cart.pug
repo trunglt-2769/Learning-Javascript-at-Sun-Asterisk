@@ -1,6 +1,7 @@
 extends ../base/base.pug
 include ../components/breadcrumb.pug
 include ../components/top-title.pug
+include ../components/progress-bar.pug
 
 block variables
     - const title = 'Giỏ hàng'
@@ -8,38 +9,59 @@ block variables
     
 block content
     +breadcrumb(breadcrumb.cart, current)
-
+    
     section.cart 
         .container 
+            +progressBar('Giỏ hàng')
+            .pt-5
             +top-title(title)
-            .cart__table
-                table.mt-5
-                    thead
-                        tr
-                            th Ảnh
-                            th Tên sản phẩm
-                            th Giá
-                            th Số lượng
-                            th Tổng Số
-                            th Xóa
-                    tbody
-                        each item in cart.items
-                            - const {img, imgAlt, name, price, qty} = item 
-                            tr 
-                                td 
-                                    img(src=`./assets/images/Product/${img}` alt= imgAlt)
-                                td
-                                    .cart-item__name= name
-                                td
-                                    h4.price= price
-                                td 
-                                    input(type='number' value= qty)
-                                td
-                                    h4.price= price * qty
-                                td
-                                    em.cart__remove.far.fa-trash-alt
+            .cart__main
+                .cart__table
+                    table.mt-5
+                        thead
+                            tr
+                                th Ảnh
+                                th Tên sản phẩm
+                                th Giá
+                                th Số lượng
+                                th Tổng Số
+                                th Xóa
+                        tbody
+                            //- each item in cart.items
+                            //-     - const {img, imgAlt, name, price, qty} = item 
+                            //-     tr 
+                            //-         td 
+                            //-             img(src=`./assets/images/Product/${img}` alt= imgAlt)
+                            //-         td
+                            //-             .cart-item__name= name
+                            //-         td
+                            //-             h4.price= price
+                            //-         td 
+                            //-             input(type='number' value= qty)
+                            //-         td
+                            //-             h4.price= price * qty
+                            //-         td
+                            //-             em.cart__remove.far.fa-trash-alt
+                .cart__payment
             .cart__group-button
-                a(href='#').me-sm-3.button Tiếp tục mua hàng 
-                a(href='#').flex-grow-1.flex-sm-grow-0.me-3.mt-3.mt-sm-0.button Xóa
-                a(href='#').flex-grow-1.flex-sm-grow-0.mt-3.mt-sm-0.button Cập nhật
+                a.cart__continue-buy-btn.me-sm-3.button(href='/index.html') Tiếp tục mua hàng 
+                //- button.cart__delete-btn.flex-grow-1.flex-sm-grow-0.me-3.mt-3.mt-sm-0.button Xóa
+                //- button.cart__update-btn.flex-grow-1.flex-sm-grow-0.mt-3.mt-sm-0.button Cập nhật
+                a.cart__next-btn.flex-grow-1.flex-sm-grow-0.mt-3.mt-sm-0.button.button--save(href='/payment-info.html') Thanh toán
+    
+    section.popup.cart__deletion-modal 
+        //- input#popupClose.popup__close(type='checkbox')
+                
+        //- .popup__container
+        //-     .popup__block
+        //-         label.close-icon(for='popupClose')
+        //-         .row
+        //-             .col-lg-4.d-none.d-lg-block
+        //-                 .popup__img
+        //-                     img(src=`./assets/images/pop-up-wine.png`, alt= 'pop up image')
+        //-             .col-12.col-lg-8
+        //-                 .popup__content
+        //-                     h3.display-5.text-center Bạn muốn xoá sản phẩm này?
+        //-                     p.fs-3 Vui lòng xác nhận xóa sản phẩm abc khỏi giỏ hàng
+        //-                     button.button Đồng ý
                     

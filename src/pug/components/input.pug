@@ -1,15 +1,17 @@
-mixin form-input(id, label, type, isRequired= false, value)
+mixin form-input(id, label, type, isRequired= false, value='', placeholder='')
     .form-input.form-group
         .row 
             .col-sm-2
                 label.form-input__label.col-form-label(for= id)= label
                     if isRequired
-                        span.ms-1 *
+                        span.ms-1.text-danger *
             .col-sm-10 
                 if isRequired
-                    input.form-input__input.form-control(id= id, name= id, type= type, value= value, required)
+                    input.form-input__input.form-control(id= id, name= id, type= type, value= value, placeholder= placeholder, required)
+                    span.form-message
                 else 
-                    input.form-input__input.form-control(id= id, name= id, type= type, value= value)
+                    input.form-input__input.form-control(id= id, name= id, type= type, value= value, placeholder= placeholder)
+                    span.form-message
                     
 mixin form-select(id, formLabel, isRequired= false, selectValue, optionValue)
     .form-input-select.form-input

@@ -36,8 +36,10 @@
     }
   }
 
-  &__remove {
-    cursor: pointer;
+  &-item {
+    &__remove {
+      cursor: pointer;
+    }
   }
 
   &__group-button {

@@ -22,6 +22,16 @@
     background-color: $primary-color;
     color: $white;
   }
+
+  &:disabled,
+  &[disabled],
+  &.disabled {
+    border: 1px solid $light-gray;
+    background-color: rgba($light-gray, 0.5);
+    color: $gray;
+    pointer-events: none;
+    cursor: default;
+  }
 }
 
 .button--arrow {

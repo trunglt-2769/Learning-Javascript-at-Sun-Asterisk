@@ -1,0 +1,87 @@
+.progressBar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
+}
+
+.progress-step {
+  text-align: center;
+  position: relative;
+
+  &:before,
+  &:after {
+    background-color: $primary-color;
+    content: "";
+    height: 2px;
+    position: absolute;
+    z-index: -1;
+    top: 20px;
+  }
+
+  &:after {
+    left: 50%;
+    width: 100%;
+  }
+
+  &:last-of-type.is-active:after {
+    background-color: $primary-color;
+  }
+
+  @media screen and (min-width: 640px) {
+    &:first-of-type:before {
+      right: 50%;
+      width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    &:first-of-type:before,
+    &:last-of-type:after {
+      background-color: white !important;
+    }
+  }
+
+  &:last-of-type:after {
+    left: 50%;
+    width: 50%;
+  }
+
+  .step-count {
+    background-color: $primary-color;
+    height: 4rem;
+    width: 4rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    color: white;
+    line-height: 30px;
+    z-index: 100;
+    border: 7px solid white;
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    em {
+      font-size: 1.2rem;
+    }
+  }
+
+  &.is-active {
+    .step-description {
+      font-weight: 500;
+    }
+    &:after {
+      background-color: $light-gray;
+    }
+
+    ~ .progress-step .step-count {
+      background-color: $light-gray;
+    }
+
+    ~ .progress-step:after {
+      background-color: $light-gray;
+    }
+  }
+}
+
+.step-description {
+  font-size: 0.8rem;
+}

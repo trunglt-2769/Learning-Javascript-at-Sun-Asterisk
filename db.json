@@ -1,0 +1,345 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Rượu Vodka",
+      "qty": 93
+    },
+    {
+      "id": 2,
+      "name": "Rượu Chivas",
+      "qty": 26
+    },
+    {
+      "id": 3,
+      "name": "Rượu Champagne",
+      "qty": 12
+    }
+  ],
+  "products": [
+    {
+      "img": "Product/1.jpg",
+      "imgAlt": "product 1",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 1",
+      "categoryId": 3,
+      "price": "504000",
+      "originPrice": "610800",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 1
+    },
+    {
+      "img": "Product/2.jpg",
+      "imgAlt": "product 2",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 1",
+      "categoryId": 2,
+      "price": "155000",
+      "originPrice": "168000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 2
+    },
+    {
+      "img": "Product/3.jpg",
+      "imgAlt": "product 3",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 7",
+      "categoryId": 1,
+      "price": "740000",
+      "originPrice": "850000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 3
+    },
+    {
+      "img": "Product/4.jpg",
+      "imgAlt": "product 4",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 2",
+      "categoryId": 2,
+      "price": "150000",
+      "originPrice": "170000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 4
+    },
+    {
+      "img": "Product/5.jpg",
+      "imgAlt": "product 5",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 2",
+      "categoryId": 3,
+      "price": "380000",
+      "originPrice": "390000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 5
+    },
+    {
+      "img": "Product/6.jpg",
+      "imgAlt": "product 6",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 3",
+      "categoryId": 3,
+      "price": "280000",
+      "originPrice": "300000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 6
+    },
+    {
+      "img": "Product/7.jpg",
+      "imgAlt": "product 7",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 2",
+      "categoryId": 1,
+      "price": "400000",
+      "originPrice": "500000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 7
+    },
+    {
+      "img": "Product/8.jpg",
+      "imgAlt": "product 8",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 3",
+      "categoryId": 2,
+      "price": "240000",
+      "originPrice": "250000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 8
+    },
+    {
+      "img": "Product/9.jpg",
+      "imgAlt": "product 9",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 3",
+      "categoryId": 1,
+      "price": "260000",
+      "originPrice": "270000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 9
+    },
+    {
+      "img": "Product/10.jpg",
+      "imgAlt": "product 10",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 4",
+      "categoryId": 1,
+      "price": "300000",
+      "originPrice": "370000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 10
+    },
+    {
+      "img": "Product/11.jpg",
+      "imgAlt": "product 11",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 4",
+      "categoryId": 2,
+      "price": "300000",
+      "originPrice": "310000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 11
+    },
+    {
+      "img": "Product/12.jpg",
+      "imgAlt": "product 12",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 4",
+      "categoryId": 3,
+      "price": "320000",
+      "originPrice": "330000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 12
+    },
+    {
+      "img": "Product/13.jpg",
+      "imgAlt": "product 13",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 5",
+      "categoryId": 2,
+      "price": "325000",
+      "originPrice": "350000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 13
+    },
+    {
+      "img": "Product/14.jpg",
+      "imgAlt": "product 14",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 5",
+      "categoryId": 1,
+      "price": "180000",
+      "originPrice": "370000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 14
+    },
+    {
+      "img": "Product/1.jpg",
+      "imgAlt": "product 15",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 6",
+      "categoryId": 1,
+      "price": "380000",
+      "originPrice": "390000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 15
+    },
+    {
+      "img": "Product/2.jpg",
+      "imgAlt": "product 16",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 5",
+      "categoryId": 3,
+      "price": "400000",
+      "originPrice": "410000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 16
+    },
+    {
+      "img": "Product/3.jpg",
+      "imgAlt": "product 17",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 6",
+      "categoryId": 2,
+      "price": "420000",
+      "originPrice": "430000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 17
+    },
+    {
+      "img": "Product/4.jpg",
+      "imgAlt": "product 18",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 6",
+      "categoryId": 3,
+      "price": "240000",
+      "originPrice": "350000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 18
+    },
+    {
+      "img": "Product/5.jpg",
+      "imgAlt": "product 19",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 7",
+      "categoryId": 3,
+      "price": "460000",
+      "originPrice": "470000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 19
+    },
+    {
+      "img": "Product/6.jpg",
+      "imgAlt": "product 20",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Champagne 8",
+      "categoryId": 3,
+      "price": "480000",
+      "originPrice": "490000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 20
+    },
+    {
+      "img": "Product/7.jpg",
+      "imgAlt": "product 21",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Chivas 7",
+      "categoryId": 2,
+      "price": "500000",
+      "originPrice": "510000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 21
+    },
+    {
+      "img": "Product/8.jpg",
+      "imgAlt": "product 22",
+      "detailLink": "/product-detail.html",
+      "name": "Rượu Vodka 7",
+      "categoryId": 1,
+      "price": "520000",
+      "originPrice": "530000",
+      "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+      "link": "#",
+      "id": 22
+    }
+  ],
+  "orders": [
+    {
+      "customerInfo": {
+        "fullName": "Thanh Trung",
+        "phone": "0929803415",
+        "email": "asdasd@gmail.com",
+        "address": "162 Khúc Hạo"
+      },
+      "orderItems": [
+        {
+          "img": "Product/1.jpg",
+          "imgAlt": "product 1",
+          "detailLink": "/product-detail.html",
+          "name": "Rượu Champagne 1",
+          "categoryId": 3,
+          "price": "504000",
+          "originPrice": "610800",
+          "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+          "link": "#",
+          "id": 1,
+          "inCart": 1
+        },
+        {
+          "img": "Product/2.jpg",
+          "imgAlt": "product 2",
+          "detailLink": "/product-detail.html",
+          "name": "Rượu Chivas 1",
+          "categoryId": 2,
+          "price": "155000",
+          "originPrice": "168000",
+          "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+          "link": "#",
+          "id": 2,
+          "inCart": 3
+        },
+        {
+          "img": "Product/3.jpg",
+          "imgAlt": "product 3",
+          "detailLink": "/product-detail.html",
+          "name": "Rượu Vodka 7",
+          "categoryId": 1,
+          "price": "740000",
+          "originPrice": "850000",
+          "desc": "Một hợp chất có trong rượu vang gọi là resverato có khả năng làm tăng tối đa tuổi thọ. Resverato còn có khả năng ngăn chặn mật độ oxy hóa của protein béo.",
+          "link": "#",
+          "id": 3,
+          "inCart": 1
+        }
+      ],
+      "totalPayment": 1709000,
+      "createdAt": 1630679354843,
+      "id": 1
+    },
+    {
+      "name": "no name",
+      "email": "abcjjas@gmail.com",
+      "createdAt": 1632599778711,
+      "id": 2
+    }
+  ]
+}
